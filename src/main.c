@@ -9,7 +9,7 @@
 #include <stdint.h>
 #include <tchar.h>
 
-#include "status.h"
+#include "http.h"
 
 enum {
   PRIMARY_FIBER = 0,
@@ -166,6 +166,10 @@ int __cdecl _tmain(int argc, TCHAR *argv[]) {
   printf("%d %s\n", StatusOK, status_code_to_status_text(StatusOK));
   printf("%d %s\n", StatusBadRequest, status_code_to_status_text(StatusBadRequest));
   printf("%d %s\n", StatusInternalServerError, status_code_to_status_text(StatusInternalServerError));
+
+  printf("%d %s\n", MethodGet, method_to_method_text(MethodGet));
+  printf("%d %s\n", MethodPost, method_to_method_text(MethodPost));
+  printf("%d %s\n", MethodDelete, method_to_method_text(MethodDelete));
 
   Server server;
   if (!server_init(&server)) {
