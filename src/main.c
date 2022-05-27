@@ -9,6 +9,8 @@
 #include <stdint.h>
 #include <tchar.h>
 
+#include "status.h"
+
 enum {
   PRIMARY_FIBER = 0,
   READ_FIBER,
@@ -161,6 +163,10 @@ void server_deinit(Server* server) {
 }
 
 int __cdecl _tmain(int argc, TCHAR *argv[]) {
+  printf("%d %s\n", StatusOK, status_code_to_status_text(StatusOK));
+  printf("%d %s\n", StatusBadRequest, status_code_to_status_text(StatusBadRequest));
+  printf("%d %s\n", StatusInternalServerError, status_code_to_status_text(StatusInternalServerError));
+
   Server server;
   if (!server_init(&server)) {
     return 1;
