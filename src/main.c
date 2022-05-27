@@ -162,7 +162,18 @@ void server_deinit(Server* server) {
   WSACleanup();
 }
 
+void print_usage() {
+  printf("whttp is a simple http server\n\n");
+  printf("USAGE:\n");
+  printf("\twhttp [OPTIONS]\n\n");
+  printf("OPTIONS:\n");
+  printf("\t-port int\n");
+  printf("\t\tserver port\n");
+}
+
 int __cdecl _tmain(int argc, TCHAR *argv[]) {
+  print_usage();
+
   printf("%d %s\n", StatusOK, status_code_to_status_text(StatusOK));
   printf("%d %s\n", StatusBadRequest, status_code_to_status_text(StatusBadRequest));
   printf("%d %s\n", StatusInternalServerError, status_code_to_status_text(StatusInternalServerError));
